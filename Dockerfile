@@ -1,5 +1,5 @@
 # Base image
-FROM didstopia/base:alpine-3.5
+FROM didstopia/base:alpine-3.14
 
 # Maintainer information
 LABEL maintainer="Didstopia <support@didstopia.com>"
@@ -30,7 +30,7 @@ ENV PUID=1000
 ENV SCRIPT_SCHEDULE="daily"
 ENV SCRIPT_WORKING_DIRECTORY="\/data"
 ENV SCRIPT_STARTUP_COMMAND=".\/script.sh"
-ENV CRON_LOG_LEVEL="8"
+ENV CRON_LOG_LEVEL="9"
 
 # Copy files over
 ADD entrypoint.sh /
@@ -41,9 +41,7 @@ RUN mkdir -p /etc/periodic/everyminute
 
 # Setup our scheduled script wrapper
 RUN echo "#!/usr/bin/env sh" > /cron_script && \
-    echo "set -e" >> /cron_script && \
-    echo "set -o pipefail" >> /cron_script && \
-    echo "set -x" >> /cron_script && \
+    echo "set -eo pipefail" >> /cron_script && \
     echo "cd SCRIPT_WORKING_DIRECTORY" >> /cron_script && \
     echo "SCRIPT_STARTUP_COMMAND" >> /cron_script && \
     chmod +x /cron_script
