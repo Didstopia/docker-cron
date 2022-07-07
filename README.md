@@ -39,7 +39,7 @@ The built-in scheduler can be configured by simply setting `SCRIPT_SCHEDULE` to 
 ## Known Issues
 
 - [ ] Cron should ideally log output to both a file and to `/dev/stdout`, and this should be user configurable
-- [ ] Time zone should be taken into account in cron logs (eg. when setting `TZ="Europe/Helsinki"`)
+- [x] Time zone should be taken into account in cron logs (eg. when setting `TZ="Europe/Helsinki"`)
 - [ ] Users should not have to escape slashes in environment variables (eg. when using `SCRIPT_WORKING_DIRECTORY` or `SCRIPT_STARTUP_COMMAND`)
 
 ## License

@@ -4,6 +4,10 @@ FROM didstopia/base:alpine-3.14
 # Maintainer information
 LABEL maintainer="Didstopia <support@didstopia.com>"
 
+# FIXME: This should be handled in the base image and with a base entrypoint script/S6 overlay logic!
+# Set the default time zone
+RUN cp -f "/usr/share/zoneinfo/${TZ}" /etc/localtime
+
 # Install dependencies
 RUN apk add --no-cache \
     python3 \

@@ -23,6 +23,10 @@ function shutdown() {
   exit 0
 }
 
+# FIXME: This should be handled in the base image and with a base entrypoint script/S6 overlay logic!
+# Set the default time zone
+cp -f "/usr/share/zoneinfo/${TZ}" /etc/localtime
+
 # Handle different startup commands
 case ${1} in
   shell)
