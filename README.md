@@ -1,4 +1,6 @@
-# Cron
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/didstopia/cron?label=Docker%20Hub%20Build&style=for-the-badge)
+
+# Cron - Scheduled Container Tasks
 
 The ideal base image for cronjob based containers.
 
